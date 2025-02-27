@@ -1,0 +1,98 @@
+import xml.etree.ElementTree as ET
+from pydantic import BaseModel
+from typing import List
+
+# Define the payload structure
+class PixelSize(BaseModel):
+    w: int
+    h: int
+
+class Region(BaseModel):
+    type: str
+    x: float
+    y: float
+    w: float
+    h: float
+    highlighted: bool
+    editingLabels: bool
+    color: str
+    cls: str
+    id: str
+
+class Payload(BaseModel):
+    pixelSize: PixelSize
+    regions: List[Region]
+    image_name: str
+    project_name: str
+
+def create_xml_annotation(payload: Payload) -> str:
+    annotation = ET.Element("annotation")
+    folder = ET.SubElement(annotation, "folder")
+    folder.text = "images"
+    filename = ET.SubElement(annotation, "filename")
+    filename.text = payload.image_name
+
+    path = ET.SubElement(annotation, "path")
+    path.text = f"/path/to/{payload.image_name}.jpg"  # Update the path as needed
+
+    source = ET.SubElement(annotation, "source")
+    database = ET.SubElement(source, "database")
+    database.text = "Unknown"
+
+    size = ET.SubElement(annotation, "size")
+    width = ET.SubElement(size, "width")
+    width.text = str(payload.pixelSize.w)
+    height = ET.SubElement(size, "height")
+    height.text = str(payload.pixelSize.h)
+    depth = ET.SubElement(size, "depth")
+    depth.text = "3"  # Assuming the depth is 3 (for RGB images)
+
+    segmented = ET.SubElement(annotation, "segmented")
+    segmented.text = "0"
+
+    for region in payload.regions:
+        obj = ET.SubElement(annotation, "object")
+        name = ET.SubElement(obj, "name")
+        name.text = region.cls
+        pose = ET.SubElement(obj, "pose")
+        pose.text = "Unspecified"
+        truncated = ET.SubElement(obj, "truncated")
+        truncated.text = "0"
+        difficult = ET.SubElement(obj, "difficult")
+        difficult.text = "0"
+        bndbox = ET.SubElement(obj, "bndbox")
+        
+        xmin = ET.SubElement(bndbox, "xmin")
+        xmin.text = str(int(region.x * payload.pixelSize.w))
+        ymin = ET.SubElement(bndbox, "ymin")
+        ymin.text = str(int(region.y * payload.pixelSize.h))
+        xmax = ET.SubElement(bndbox, "xmax")
+        xmax.text = str(int((region.x + region.w) * payload.pixelSize.w))
+        ymax = ET.SubElement(bndbox, "ymax")
+        ymax.text = str(int((region.y + region.h) * payload.pixelSize.h))
+
+        # Adding id, color, and highlighted fields
+        region_id = ET.SubElement(obj, "id")
+        region_id.text = region.id
+        color = ET.SubElement(obj, "color")
+        color.text = region.color
+        highlighted = ET.SubElement(obj, "highlighted")
+        highlighted.text = str(region.highlighted).lower()
+
+    return ET.tostring(annotation, encoding="unicode")
+
+# Example usage
+payload = Payload(
+    pixelSize=PixelSize(w=1920, h=1186),
+    regions=[
+        Region(type="box", x=0.23923539959016393, y=0.0430327868852459, w=0.14809810450819672, h=0.06147540983606558,
+               highlighted=False, editingLabels=False, color="#4caf50", cls="Demo", id="6882381787454195"),
+        Region(type="box", x=0.4746734118852459, y=0.03278688524590164, w=0.12531378073770494, h=0.06352459016393441,
+               highlighted=True, editingLabels=False, color="#ef6c00", cls="Test", id="4370424699026554")
+    ],
+    image_name="ankit",
+    project_name="test"
+)
+
+xml_annotation = create_xml_annotation(payload)
+print(xml_annotation)

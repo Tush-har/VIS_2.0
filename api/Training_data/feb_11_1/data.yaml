@@ -1,0 +1,8 @@
+names:
+- test
+- ac
+- abs
+- bb
+nc: 4
+train: C:\SPRL\api\Training_data\feb_11_1\images\train
+val: C:\SPRL\api\Training_data\feb_11_1\images\val

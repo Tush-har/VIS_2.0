@@ -1,0 +1,50 @@
+<annotation>
+	<folder>Def_03-01-2024</folder>
+	<filename>124 (9).jpg</filename>
+	<path>C:\Users\saurabh.sharma\Desktop\PPS\Def_03-01-2024\124 (9).jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1024</width>
+		<height>720</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>ng_lmiter</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>659</xmin>
+			<ymin>257</ymin>
+			<xmax>744</xmax>
+			<ymax>328</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>ng_miter</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>839</xmin>
+			<ymin>155</ymin>
+			<xmax>897</xmax>
+			<ymax>280</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>ng_lmiter</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>445</xmin>
+			<ymin>414</ymin>
+			<xmax>501</xmax>
+			<ymax>597</ymax>
+		</bndbox>
+	</object>
+</annotation>

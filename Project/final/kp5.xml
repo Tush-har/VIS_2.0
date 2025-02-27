@@ -1,0 +1,1 @@
+<annotation><folder>images</folder><filename>kp5</filename><size><width>1336</width><height>766</height><depth>3</depth></size><segmented>0</segmented><object><name>dd</name><pose>Unspecified</pose><truncated>0</truncated><difficult>0</difficult><bndbox><xmin>540</xmin><ymin>181</ymin><xmax>660</xmax><ymax>326</ymax></bndbox></object></annotation>

@@ -1,0 +1,26 @@
+<annotation>
+	<folder>savedimages3</folder>
+	<filename>LUCID_TRI023S-C_240400247__20240709034818766_image102.png</filename>
+	<path>C:\Users\utkrisht.dutta\Downloads\Camera Roll\savedimages3\LUCID_TRI023S-C_240400247__20240709034818766_image102.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>720</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Good</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>647</xmin>
+			<ymin>430</ymin>
+			<xmax>935</xmax>
+			<ymax>503</ymax>
+		</bndbox>
+	</object>
+</annotation>

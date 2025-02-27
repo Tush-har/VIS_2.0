@@ -1,0 +1,7 @@
+names:
+- gdg
+- ankit
+- kapil
+nc: 3
+train: C:\SPRL\Training_data\abc\images\train
+val: C:\SPRL\Training_data\abc\images\val

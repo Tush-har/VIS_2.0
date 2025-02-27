@@ -1,0 +1,26 @@
+<annotation>
+	<folder>New folder</folder>
+	<filename>284 (10).jpg</filename>
+	<path>C:\Users\krishna.chauhan\Music\New folder\284 (10).jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1024</width>
+		<height>720</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>empty</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>274</xmin>
+			<ymin>136</ymin>
+			<xmax>855</xmax>
+			<ymax>533</ymax>
+		</bndbox>
+	</object>
+</annotation>
